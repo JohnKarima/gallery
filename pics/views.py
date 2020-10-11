@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.http  import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import Http404, HttpResponse
 from .models import Image, Location, Category
+from django.core.exceptions import ObjectDoesNotExist
+
 
 # Create your views here.
 def welcome(request):
@@ -22,7 +24,7 @@ def search_results(request):
     
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_images = Image.search_by_location(search_term)
+        searched_images = Image.search_by_image_description(search_term)
         message = f"{search_term}"
 
         return render(request, 'search.html',{"message":message,"images": searched_images})
@@ -36,14 +38,14 @@ def search_results(request):
 
     elif 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_images = Image.search_by_image_description(search_term)
+        searched_images = Image.search_by_location(search_term)
         message = f"{search_term}"
 
         return render(request, 'search.html',{"message":message,"images": searched_images})
 
     elif 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_images = Image.search_by_location(search_term)
+        searched_images = Image.search_by_image_name(search_term)
         message = f"{search_term}"
 
         return render(request, 'search.html',{"message":message,"images": searched_images})
@@ -51,3 +53,12 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+
+
+def image(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request,"image.html", {"image":image})

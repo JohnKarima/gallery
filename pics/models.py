@@ -13,7 +13,7 @@ class Image(models.Model):
 
     class Meta:
         '''
-        class method to display images by date posted
+        Class method to display images by date published
         '''
         ordering = ['pub_date']
 
