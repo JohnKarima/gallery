@@ -22,11 +22,21 @@ class Image(models.Model):
         pics = cls.objects.filter(image_description__icontains=search_term)
         return pics
 
-    # @classmethod
-    # def search_by_category(cls,search_term):
-    #     pics = cls.objects.filter(category__icontains=search_term)
-    #     return pics
+    @classmethod
+    def search_by_image_name(cls,search_term):
+        pics = cls.objects.filter(image_name__icontains=search_term)
+        return pics
 
+    @classmethod
+    def search_by_location(cls,search_term):
+        pics = cls.objects.filter(location__location__icontains=search_term)
+        return pics
+
+    @classmethod
+    def search_by_category(cls,search_term):
+        pics = cls.objects.filter(category__category__icontains=search_term)
+        return pics
+   
     def __str__(self):
         return self.image_description
 
@@ -48,6 +58,11 @@ class Location(models.Model):
         Method to save locations
         '''
         self.save()
+
+    @classmethod
+    def delete_location(cls,location):
+        cls.objects.filter(location=location).delete()
+
     
     def __str__(self):
         return self.location
@@ -69,6 +84,11 @@ class Category(models.Model):
         Method to save our categories
         '''
         self.save()
+
+    @classmethod
+    def delete_category(cls,category):
+        cls.objects.filter(category=category).delete()
+
 
     def __str__(self):
         return self.category
