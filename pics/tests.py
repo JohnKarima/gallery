@@ -19,7 +19,7 @@ class EditorTestClass(TestCase):
 class ImageTestClass(TestCase):
     
     def setUp(self):
-        # Creating a new editor and saving it
+        # Creating a new image and saving it
         self.james= Editor(first_name = 'James', last_name ='Muriuki', email ='james@moringaschool.com')
         self.james.save_editor()
 
