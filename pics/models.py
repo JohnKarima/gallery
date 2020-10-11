@@ -17,20 +17,7 @@ class Image(models.Model):
         '''
         ordering = ['pub_date']
 
-    @classmethod
-    def search_by_image_description(cls,search_term):
-        pics = cls.objects.filter(image_description__icontains=search_term)
-        return pics
 
-    @classmethod
-    def search_by_image_name(cls,search_term):
-        pics = cls.objects.filter(image_name__icontains=search_term)
-        return pics
-
-    @classmethod
-    def search_by_location(cls,search_term):
-        pics = cls.objects.filter(location__location__icontains=search_term)
-        return pics
 
     @classmethod
     def search_by_category(cls,search_term):
