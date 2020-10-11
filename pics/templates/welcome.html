@@ -4,6 +4,22 @@
 {{block.super}}
 <h1> Welcome to the Gallery App</h1>
 
+
+
+
+<div class="container">
+    {% for image in images %}
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <img src="{{image.gallery_image.url}}" class="img-responsive" alt="Image">
+    </div>
+             
+    <p class="text-center">{{image.image_description}}</p>
+    <p>Location taken : {{image.location}}</p>
+    <p>Category : {{image.category}}</p>
+    <p>Posted on :{{image.pub_date}}</p>
+             
+              
+</div>
+    {% endfor %}
+
 {% endblock %}
-
-

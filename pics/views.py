@@ -16,4 +16,4 @@ def welcome(request):
         "categories": categories,
     }
 
-    return render(request, 'welcome.html'), context
+    return render(request, 'welcome.html' , context)
