@@ -17,6 +17,28 @@ class Image(models.Model):
         '''
         ordering = ['pub_date']
 
+
+    def save_image(self):
+        '''
+        Method to save our images
+        '''
+        self.save()
+
+    def delete_image(self):
+        '''
+        Method to delete our images
+        '''
+        self.delete()
+
+    @classmethod
+    def update_image(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        pics = cls.objects.filter(id=id).all()
+        return pics
+
     @classmethod
     def search_by_category(cls,search_term):
         pics = cls.objects.filter(category__category__icontains=search_term)
@@ -26,25 +48,6 @@ class Image(models.Model):
     def filter_by_location(cls, location):
         image_location = Image.objects.filter(location__name=location).all()
         return image_location
-
-    @classmethod
-    def update_image(cls, id, value):
-        cls.objects.filter(id=id).update(image=value)
-
-    def delete_image(self):
-        '''
-        Method to delete our images
-        '''
-        self.delete()
-
-    def save_image(self):
-        '''
-        Method to save our images
-        '''
-        self.save()
-
-   
-
    
     def __str__(self):
         return self.image_description
@@ -69,13 +72,15 @@ class Location(models.Model):
         self.save()
 
     @classmethod
+    def update_location(cls, id, value):
+        cls.objects.filter(id=id).update(location=location)
+
+    @classmethod
     def delete_location(cls,location):
         cls.objects.filter(location=location).delete()
 
-    
     def __str__(self):
         return self.location
-
 
 class Category(models.Model):
     category = models.CharField(max_length =30)
@@ -93,6 +98,11 @@ class Category(models.Model):
         Method to save our categories
         '''
         self.save()
+
+    @classmethod
+    def update_category(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+
 
     @classmethod
     def delete_category(cls,category):
