@@ -16,9 +16,10 @@
     <p>Description:{{image.image_description}}</p>
     <p>Location taken : {{image.location}}</p>
     <p>Category : {{image.category}}</p>
-    <p>Posted on :{{image.pub_date}}</p>
+    <p>Posted on : {{image.pub_date}}</p>
              
-              
+    <a href="{% url 'image' image.id %}">Click to view</a>
+
 </div>
     {% endfor %}
 
