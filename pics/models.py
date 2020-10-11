@@ -24,6 +24,40 @@ class Location(models.Model):
     location = models.CharField(max_length =30)
 
 
+    @classmethod
+    def get_all_locations(cls):
+        '''
+        Method to get all the locations
+        '''
+        locations = cls.objects.all()
+        return locations
+
+    def save_location(self):
+        '''
+        Method to save locations
+        '''
+        self.save()
+    
+    def __str__(self):
+        return self.location
+
+
 class Category(models.Model):
     category = models.CharField(max_length =30)
 
+    @classmethod
+    def get_all_categories(cls):
+        '''
+        Method to get all our categories
+        '''
+        categories = cls.objects.all()
+        return categories
+
+    def save_category(self):
+        '''
+        Method to save our categories
+        '''
+        self.save()
+
+    def __str__(self):
+        return self.category
