@@ -12,13 +12,13 @@ def welcome(request):
     images = Image.objects.all()
     location = Location.objects.all()
     categories = Category.get_all_categories()
-    context = {
-        "images":images,
-        "location":location,
-        "categories": categories,
-    }
+    # context = {
+    #     "images":images,
+    #     "location":location,
+    #     "categories": categories,
+    # }
 
-    return render(request, 'welcome.html' , context)
+    return render(request, 'welcome.html', {"images":images, "location":location, "categories":categories})
 
 def search_results(request):
     
