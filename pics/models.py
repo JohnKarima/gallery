@@ -17,12 +17,34 @@ class Image(models.Model):
         '''
         ordering = ['pub_date']
 
-
-
     @classmethod
     def search_by_category(cls,search_term):
         pics = cls.objects.filter(category__category__icontains=search_term)
         return pics
+
+    @classmethod
+    def filter_by_location(cls, location):
+        image_location = Image.objects.filter(location__name=location).all()
+        return image_location
+
+    @classmethod
+    def update_image(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+
+    def delete_image(self):
+        '''
+        Method to delete our images
+        '''
+        self.delete()
+
+    def save_image(self):
+        '''
+        Method to save our images
+        '''
+        self.save()
+
+   
+
    
     def __str__(self):
         return self.image_description
