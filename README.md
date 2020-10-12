@@ -18,34 +18,33 @@ Gallery App
 ```
 $ git clone https://github.com/JohnKarima/gallery
 ```
-- Move into directory and install requirements
+## Move into directory and install requirements
 ```
 $ cd gallery
+
 $ pip install -r requirements.txt 
 ```
-- Install and activate a Virtual Environment
+## Install and activate a Virtual Environment
 ```
 $ python3 -m venv virtual 
+
 $ source virtual/bin/activate  
 ```
-
-- Set-up a Database
+## Set-up a Database
 ```
 Set your database User and Password 
 ```
-- Make Migrations
+## Make Migrations & Migrate
 ```
 $ python manage.py makemigrations <DB Name> 
-```
-- Migrate
-```
+
 $ python manage.py migrate 
 ```
-- Run the application
+## Run the application
 ```
 python manage.py runserver 
 ```
-- Run the test for the application:
+## Run the test for the application:
 ```
 $ python3 manage.py test
 ```
