@@ -8,19 +8,16 @@
 
 
 <div class="container">
+    <div class="row">
     {% for image in images %}
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <img src="{{image.gallery_image.url}}" class="img-responsive" alt="Image">
+    <div class="col-md-4">
+      <div class="card">
+            <a href="{% url 'image' image.id %}"><img src="{{image.gallery_image.url}}" style="width:100%;height:56%;" class="img-responsive" alt="Image"></a>
+      </div>
     </div>
-             
-    <p>Description:{{image.image_description}}</p>
-    <p>Location taken : {{image.location}}</p>
-    <p>Category : {{image.category}}</p>
-    <p>Posted on : {{image.pub_date}}</p>
-             
-    <a href="{% url 'image' image.id %}">Click to view</a>
-
-</div>
     {% endfor %}
+
+  </div>
+</div>
 
 {% endblock %}
