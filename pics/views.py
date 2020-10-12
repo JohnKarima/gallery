@@ -15,9 +15,9 @@ def welcome(request):
  
     return render(request, 'welcome.html', {"images":images[::-1], "location":location, "categories":categories})
 
+
 def search_results(request):
     
-   
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
         searched_images = Image.search_by_category(search_term)

@@ -1,7 +1,26 @@
 {%extends 'base.html'%}
 
 {% block content %}
+
+
 {{block.super}}
+
+
+
+<style>
+    .zoom {
+      transition: transform .2s; 
+    }
+    
+    .zoom:hover {
+      transform: scale(1.03); 
+      border: 3px solid #298505;
+      overflow: hidden;  
+    }
+    </style>
+
+
+
 <h1> Welcome to the Gallery App</h1>
 
 
@@ -11,7 +30,7 @@
     <div class="row">
     {% for image in images %}
     <div class="col-md-4">
-      <div class="card">
+      <div class="card zoom">
             <a href="{% url 'image' image.id %}"><img src="{{image.gallery_image.url}}" style="width:100%;height:56%;" class="img-responsive" alt="Image"></a>
       </div>
     </div>

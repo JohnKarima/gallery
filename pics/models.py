@@ -17,7 +17,6 @@ class Image(models.Model):
         '''
         ordering = ['pub_date']
 
-
     def save_image(self):
         '''
         Method to save our images
