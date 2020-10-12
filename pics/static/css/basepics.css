@@ -36,19 +36,18 @@ p, ul, li {
 .blockquote-footer{
     color: rgb(211, 218, 218);
     font-size: 100%;
-
 }
 
 .zoom {
     transition: transform .2s; 
-  }
+ }
   
 .zoom:hover {
     transform: scale(1.02); 
     border: 3px solid #fafafa;
     overflow: hidden;  
-  }
+}
 
-  ul {
+ul {
     list-style-position: inside;
-  }
+}
