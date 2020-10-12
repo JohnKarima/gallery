@@ -31,3 +31,24 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+
+
+ <p>Description: {{image.image_description}}</p>
+     <p>Location taken: {{image.location}}</p>
+     <p>Category: {{image.category}}</p>
+     <p>Posted on:{{image.pub_date}}</p>
+   </div>
+
+
+   <div class="row">
+    <h1 class="text-center">{{image.image_name|title}}</h1>
+  </div>
+
+   <div class="row">
+
+     <p>Description: {{image.image_description}}</p>
+     <p>Location taken: {{image.location}}</p>
+     <p>Category: {{image.category}}</p>
+     <p>Posted on:{{image.pub_date}}</p>
+   </div>

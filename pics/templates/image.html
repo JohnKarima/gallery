@@ -8,23 +8,30 @@
      <img src="{{image.gallery_image.url}}"  class="img-responsive" alt="">
    </div>
 
-   <div class="row">
-     <h1 class="text-center">{{image.image_name}}</h1>
-   </div>
+   
 
    <div class="row">
      <p>{{image.post}}</p>
    </div>
 
-   <div class="row">
-
-     <p>Description: {{image.image_description}}</p>
-     <p>Location taken: {{image.location}}</p>
-     <p>Category: {{image.category}}</p>
-     <p>Posted on:{{image.pub_date}}</p>
-   </div>
    
+   
+   <div class="card text-center">
+    <div class="card-header">
+        <h1 class="text-center">{{image.image_name|title}}</h1>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Location taken: {{image.location}}</h5>
+      <h5 class="card-title">Category: {{image.category}}</h5>
 
- </div>
+      <p class="card-text">Description: {{image.image_description}}</p>
+      <a href="{% url 'welcome' %}" class="btn btn-primary">Back to gallery</a>
+    </div>
+    <div class="card-footer text-muted">
+        Posted on:{{image.pub_date}}
+    </div>
+  </div>
+
+ </div><br><br><br><br><br>
 
  {% endblock %}
