@@ -2,10 +2,7 @@
 
 {% block content %}
 
-
 {{block.super}}
-
-
 
 <style>
     .zoom {
@@ -21,13 +18,9 @@
 
 <h1 class="text-center"> Welcome to the Gallery App</h1><br><br>
 
-<div>
-        {% for location in locations %}
-            <a class="btn btn-outline-info btn-sm" id="btn"
-               href="/location/{{location.name}}">{{location.name}}</a>
-        {%endfor%}
-    </div>
 
+<div id="a" onclick="copyDivToClipboard()"> Click to copy </div>
+            
 
 
 <div class="container">
@@ -42,5 +35,14 @@
 
   </div>
 </div>
-
+<script>
+    function copyDivToClipboard() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("a"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+</script>
 {% endblock %}

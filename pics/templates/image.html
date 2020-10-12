@@ -20,6 +20,10 @@
 
       <p class="card-text">Description: {{image.image_description}}</p>
       <a href="{% url 'welcome' %}" class="btn btn-primary">Back to gallery</a>
+
+      <div id="a" onclick="copyDivToClipboard()">
+      <a href="{{image.gallery_image.url}}" class="btn btn-primary">Copy image to clipboard</a></div>
+
     </div>
     <div class="card-footer text-muted">
         Posted on:{{image.pub_date}}
@@ -27,5 +31,16 @@
   </div>
 
  </div><br><br><br><br><br>
+
+ <script>
+    function copyDivToClipboard() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("a"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+</script>
 
  {% endblock %}

@@ -1,8 +1,6 @@
 from django.db import models
 import datetime as dt
 
-# Create your models here.
-
 class Image(models.Model):
     image_name = models.CharField(max_length =30)
     image_description = models.TextField()
@@ -101,7 +99,6 @@ class Category(models.Model):
     @classmethod
     def update_category(cls, id, value):
         cls.objects.filter(id=id).update(image=value)
-
 
     @classmethod
     def delete_category(cls,category):
