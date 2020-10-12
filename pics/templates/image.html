@@ -11,16 +11,16 @@
 
    <div class="card text-center">
     <div class="card-header">
-        <h1 class="text-center">{{image.image_name|title}}</h1>
+        <h2 class="text-center">{{image.image_name|title}}</h2>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Location taken: {{image.location}}</h5>
-      <h5 class="card-title">Category: {{image.category}}</h5>
-      <p class="card-text">Description: {{image.image_description}}</p>
+      <p class="card-title">Location taken: {{image.location}}</p>
+      <p class="card-title">Category: {{image.category}}</p>
+      <p class="card-text">Description: {{image.image_description}}</p><br>
       <a href="{% url 'welcome' %}" class="btn btn-primary">Back to gallery</a>
     </div>
-    <div class="card-footer text-muted">
-        Posted on:{{image.pub_date}}
+    <div class="card-footer text-muted"><br>
+        Posted on: {{image.pub_date}}
     </div>
   </div>
  </div><br><br><br><br><br>
