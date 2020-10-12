@@ -32,6 +32,13 @@ p, ul, li {
 .card-footer{
     font-size: 150%;
 }
+
+.blockquote-footer{
+    color: rgb(211, 218, 218);
+    font-size: 100%;
+
+}
+
 .zoom {
     transition: transform .2s; 
   }

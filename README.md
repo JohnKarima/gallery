@@ -4,6 +4,9 @@ Gallery App
 # Project Description 
 - A personal gallery application that displays your photos for others to see.
 
+# Screencap
+![Screenshot of working application](/images/screenshot-ultra.png "App Screenshot 1")
+
 # Link to Live Project
 - 
 
