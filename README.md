@@ -5,7 +5,7 @@ Gallery App
 - A personal gallery application that displays your photos for others to see.
 
 # Link to Live Project
-- 
+- https://gallery343.herokuapp.com
 
 # Author 
 - [John Karima](https://github.com/JohnKarima)
