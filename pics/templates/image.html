@@ -1,9 +1,8 @@
 {%extends 'base.html'%}
 
- {% block content %}
+{% block content %}
 
  <div class="container">
-
    <div class="row">
        <div class="container text-center">
      <img src="{{image.gallery_image.url}}"  class="img-responsive" alt="">
@@ -17,7 +16,6 @@
     <div class="card-body">
       <h5 class="card-title">Location taken: {{image.location}}</h5>
       <h5 class="card-title">Category: {{image.category}}</h5>
-
       <p class="card-text">Description: {{image.image_description}}</p>
       <a href="{% url 'welcome' %}" class="btn btn-primary">Back to gallery</a>
 

@@ -32,11 +32,6 @@ class Image(models.Model):
         cls.objects.filter(id=id).update(image=value)
 
     @classmethod
-    def get_image_by_id(cls, id):
-        pics = cls.objects.filter(id=id).all()
-        return pics
-
-    @classmethod
     def search_by_category(cls,search_term):
         pics = cls.objects.filter(category__category__icontains=search_term)
         return pics
@@ -49,23 +44,15 @@ class Image(models.Model):
     def __str__(self):
         return self.image_description
 
-
 class Location(models.Model):
     location = models.CharField(max_length =30)
 
-
     @classmethod
     def get_all_locations(cls):
-        '''
-        Method to get all the locations
-        '''
         locations = cls.objects.all()
         return locations
 
     def save_location(self):
-        '''
-        Method to save locations
-        '''
         self.save()
 
     @classmethod
@@ -84,16 +71,10 @@ class Category(models.Model):
 
     @classmethod
     def get_all_categories(cls):
-        '''
-        Method to get all our categories
-        '''
         categories = cls.objects.all()
         return categories
 
     def save_category(self):
-        '''
-        Method to save our categories
-        '''
         self.save()
 
     @classmethod
@@ -103,7 +84,6 @@ class Category(models.Model):
     @classmethod
     def delete_category(cls,category):
         cls.objects.filter(category=category).delete()
-
 
     def __str__(self):
         return self.category

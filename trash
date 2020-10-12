@@ -98,3 +98,8 @@ class ImageTestClass(TestCase):
         Editor.objects.all().delete()
         tags.objects.all().delete()
         Image.objects.all().delete()
+
+        @classmethod
+    def get_image_by_id(cls, id):
+        pics = cls.objects.filter(id=id).all()
+        return pics
